@@ -2,9 +2,10 @@ from django.shortcuts import render
 
 def index(request):
     title = 'Главная Страница'
-
+    prods = Product.objects.all()[:4]
     context = {
         'title': title,
+        'products': prods
     }
 
     return render(request, 'index.html', context)
@@ -18,8 +19,10 @@ def contacts(request):
 
 def products(request):
     title = 'Продукты'
+    prods = Product.object.all()[:9]
     context = {
         'title': title,
+        'products': prods
     }
     return render(request, 'products.html', context)
 
