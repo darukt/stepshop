@@ -2,8 +2,9 @@
 
 {% load static %}
 
-    <title>{% block title %}{{ title }}{% endblock %}</title>
+{% block title %}{{ title }}{% endblock %}
 
+{% block css %} <link rel="stylesheet" href="{% static 'assets/css/flex-slider.css'%}">{% endblock %}
 
 {% block content %}
     <div class="contact-page">
@@ -72,4 +73,8 @@
     </div>
     <!-- About Page Ends Here -->
 
+{% endblock %}
+{% block js %}
+<script src="{% static 'assets/js/isotope.js'%}"></script>
+<script src="{% static 'assets/js/flex-slider.js'%}"></script>
 {% endblock %}

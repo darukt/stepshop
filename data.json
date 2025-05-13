@@ -1,0 +1,124 @@
+[
+  {
+    "model": "mainapp.category",
+    "pk": 1,
+    "fields": {
+      "name": "Джинсы",
+      "description": "Покупайте наши джинсы"
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 2,
+    "fields": {
+      "name": "Кеды",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 3,
+    "fields": {
+      "name": "Сумки",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.category",
+    "pk": 4,
+    "fields": {
+      "name": "Куртки",
+      "description": "Очень теплые куртки"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Синие Джинсы",
+      "image": "product_images/big-03.jpg",
+      "short_description": "",
+      "description": "Синие",
+      "price": "300.00",
+      "quantity": 8,
+      "created": "2025-05-06T13:09:46.487Z",
+      "updated": "2025-05-06T13:09:46.487Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 2,
+    "fields": {
+      "category": 2,
+      "name": "Красные кеды",
+      "image": "product_images/product-04.jpg",
+      "short_description": "",
+      "description": "Красные и на трубках",
+      "price": "287.00",
+      "quantity": 3,
+      "created": "2025-05-06T13:10:20.752Z",
+      "updated": "2025-05-06T13:10:20.752Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 3,
+    "fields": {
+      "category": 3,
+      "name": "Розовая сумка",
+      "image": "product_images/product-06.jpg",
+      "short_description": "",
+      "description": "Сумка",
+      "price": "493.00",
+      "quantity": 5,
+      "created": "2025-05-06T13:11:29.372Z",
+      "updated": "2025-05-08T12:45:50.337Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Джинсы Красные",
+      "image": "product_images/product-02.jpg",
+      "short_description": "",
+      "description": "штаны",
+      "price": "435.00",
+      "quantity": 7,
+      "created": "2025-05-08T11:30:35.502Z",
+      "updated": "2025-05-08T12:53:11.890Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "Кеды голубые",
+      "image": "",
+      "short_description": "",
+      "description": "кеды",
+      "price": "543.00",
+      "quantity": 6,
+      "created": "2025-05-08T11:30:55.880Z",
+      "updated": "2025-05-08T11:30:55.880Z"
+    }
+  },
+  {
+    "model": "mainapp.product",
+    "pk": 6,
+    "fields": {
+      "category": 4,
+      "name": "куртка синяя",
+      "image": "product_images/item-03.jpg",
+      "short_description": "",
+      "description": "",
+      "price": "430.00",
+      "quantity": 8,
+      "created": "2025-05-08T12:47:19.451Z",
+      "updated": "2025-05-08T12:47:19.451Z"
+    }
+  }
+]
