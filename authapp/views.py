@@ -7,7 +7,7 @@ from authapp.forms import ShopUserLoginForm
 
 def login(request):
     title = 'Вход'
-    if request.method == 'Post':
+    if request.method == 'POST':
         login_form = ShopUserLoginForm(data=request.POST)
         if login_form.is_valid():
             username = request.POST['username']
