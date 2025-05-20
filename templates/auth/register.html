@@ -9,14 +9,15 @@
     <div class="container pt-5">
         <div class="row">
             <div class="mx-auto col-4">
-                <form action="{% url 'auth:login' %}" method="post">
+                <form action="{% url 'auth:register' %}" 
+                      method="post"
+                      enctype="multipart/form-data">
+                    
                     {% csrf_token %}
-                    {{ login_form.as_p }}
+                    {{ register_form.as_p }}
+                    
                     <button type="submit" class="btn btn-primary">
-                        Войти
-                    </button>                    
-                    <button type="button" class="btn">
-                        <a href="{% url 'auth:register' %}">Зарегистрироваться</a>
+                        Зарегистрироваться
                     </button>
                 </form>
             </div>
