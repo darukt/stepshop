@@ -37,12 +37,21 @@ https://www.tooplate.com/view/2114-pixie
       <div class="container d-md-flex justify-content-md-end">
         <div class="row">
           <div class="col-md-12">
-            <span>
+            <span class="buttons">
                 {% if user.is_authenticated %}
+                <a href="/admin/" class="btn btn-light btn-sm mx-3">Админка</a>
+
+
+
                     <a href="{% url 'auth:edit' %}" class="btn btn-light btn-sm">
                      {{ user.username|title }}
                     </a>
                     <a href="{% url 'auth:logout' %}" class="btn btn-light btn-sm mx-3">Выйти</a>
+                    {% if basket %}
+                        <a href="#" class="basket mx-3">
+                            <span>{{ basket|length }}</span>
+                        </a>
+                    {% endif %}
                 {% else %}
                     <a href="{% url 'auth:login' %}" class="btn btn-light btn-sm mx-3">Войти</a>
                 {% endif %}

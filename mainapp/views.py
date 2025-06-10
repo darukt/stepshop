@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 
 from mainapp.models import Product, Category
 
+from basketapp.models import Basket
+
 def get_main_menu(current='mainapp:index'):
     return  [
         {'href': 'mainapp:index', 'name': 'Главная', 'active': current},
@@ -44,13 +46,19 @@ def products(request, pk=None):
 
     categories = Category.objects.all()
 
+    basket = []
+
+    if request.user.is_authenticated:
+        basket = Basket.objects.filter(user=request.user)
+
     title = 'Товары'
 
     context = {
         'title': title,
         'products': prods,
         'categories': categories,
-        'menu_links': get_main_menu('mainapp:products')
+        'menu_links': get_main_menu('mainapp:products'),
+        'basket': basket,
     }
 
     if pk is not None:
