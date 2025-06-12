@@ -4,40 +4,35 @@ from mainapp.models import Product, Category
 
 from basketapp.models import Basket
 
-def get_main_menu(current='mainapp:index'):
-    return  [
-        {'href': 'mainapp:index', 'name': 'Главная', 'active': current},
-        {'href': 'mainapp:products', 'name': 'Товары', 'active': current},
-        {'href': 'mainapp:about', 'name': 'О Нас', 'active': current},
-        {'href': 'mainapp:contacts', 'name': 'Контакты', 'active': current},
-    ]
-
-def little_menu_link(current='mainapp:products'):
-    return [
-        {'href': 'product:category', 'name': 'Все', 'active': current},
-        {'href': 'product:category', 'name': 'Джинсы', 'active': current},
-        {'href': 'product:category', 'name': 'Кеды', 'active': current},
-        {'href': 'product:category', 'name': 'Сумки', 'active': current},
-    ]
+from mainapp.utils import get_main_menu, get_basket
 
 def index(request):
     title = 'Главная Страница'
 
     prods = Product.objects.all()[:4]
 
+
+    if request.user.is_authenticated:
+        basket = get_basket(request.user)
+
     context = {
         'title': title,
         'products': prods,
         'menu_links': get_main_menu(),
+        'basket': basket,
     }
 
     return render(request, 'index.html', context)
 
 def contacts(request):
     title = 'Контакты'
+
+    if request.user.is_authenticated:
+        basket = get_basket(request.user)
     context = {
         'title': title,
         'menu_links': get_main_menu('mainapp:contacts'),
+        'basket': basket,
     }
     return render(request, 'contacts.html', context)
 
@@ -49,7 +44,7 @@ def products(request, pk=None):
     basket = []
 
     if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+        basket = get_basket(request.user)
 
     title = 'Товары'
 
@@ -75,9 +70,13 @@ def products(request, pk=None):
 
 def about(request):
     title = 'О Нас'
+
+    if request.user.is_authenticated:
+        basket = get_basket(request.user)
     context = {
         'title': title,
-        'menu_links': get_main_menu('mainapp:about')
+        'menu_links': get_main_menu('mainapp:about'),
+        'basket': basket,
     }
     return render(request, 'about.html', context)
 
@@ -87,10 +86,16 @@ def product(request, pk):
     prod = Product.objects.get(pk=pk)
     prods = Product.objects.exclude(id=pk)
 
+
+    if request.user.is_authenticated:
+        basket = get_basket(request.user)
+
+
     context = {
         'title': title,
         'prod': prod,
         'products': prods,
-        'menu_links': get_main_menu('mainapp:products')
+        'menu_links': get_main_menu('mainapp:products'),
+        'basket': basket,
     }
     return render(request, 'product.html', context)

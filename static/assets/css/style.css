@@ -15,7 +15,7 @@
     justify-content: flex-end;
     width: 28px;
     height: 26px;
-    background: url(../images/basket.png) no-repeat;
+    background: url(static/assets/images/basket.png) no-repeat;
     margin-top: 5px;
     margin-bottom: 5px;
 }
