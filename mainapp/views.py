@@ -10,7 +10,7 @@ def index(request):
     title = 'Главная Страница'
 
     prods = Product.objects.all()[:4]
-
+    basket = []
 
     if request.user.is_authenticated:
         basket = get_basket(request.user)
@@ -26,7 +26,7 @@ def index(request):
 
 def contacts(request):
     title = 'Контакты'
-
+    basket = []
     if request.user.is_authenticated:
         basket = get_basket(request.user)
     context = {
@@ -70,7 +70,7 @@ def products(request, pk=None):
 
 def about(request):
     title = 'О Нас'
-
+    basket = []
     if request.user.is_authenticated:
         basket = get_basket(request.user)
     context = {
@@ -82,14 +82,13 @@ def about(request):
 
 def product(request, pk):
     title = 'Товар'
-
+    basket = []
     prod = Product.objects.get(pk=pk)
     prods = Product.objects.exclude(id=pk)
 
 
     if request.user.is_authenticated:
         basket = get_basket(request.user)
-
 
     context = {
         'title': title,

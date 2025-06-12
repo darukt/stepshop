@@ -54,8 +54,9 @@ https://www.tooplate.com/view/2114-pixie
                     <a href="{% url 'auth:logout' %}" class="btn btn-light btn-sm mx-3">Выйти</a>
                     {% if basket %}
                         <a href="{% url 'basket:view' %}" class="basket mx-3">
-                            <span>{{ basket|length }}</span>
+                            <span>{{ basket.0.total_quantity }}</span>
                         </a>
+                <span>{{ basket.0.total_cost|floatformat:0 }} тг.</span>
                     {% endif %}
                 {% else %}
                     <a href="{% url 'auth:login' %}" class="btn btn-light btn-sm mx-3">Войти</a>

@@ -9,6 +9,6 @@ def get_main_menu(current='mainapp:index'):
         {'href': 'mainapp:contacts', 'name': 'Контакты', 'active': current},
     ]
 def get_basket(user=None):
-    if user:
+    if user and user.is_authenticated:
         return  Basket.objects.filter(user=user)
     return None
